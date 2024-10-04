@@ -32,6 +32,10 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 <resources>
     <!-- Enable doze mode -->
     <bool name="doze_display_state_supported">true</bool>
+    
+    <!-- Microns/ums (1000 um = 1mm) per pixel for the given device. If unspecified, UI that
+        relies on this value will not be sized correctly. -->
+    <item name="pixel_pitch" format="float" type="dimen">64.7</item>
 
     <string-array name="config_quickSettingsAutoAdd" translatable="false">
         <item>accessibility_display_inversion_enabled:inversion</item>
