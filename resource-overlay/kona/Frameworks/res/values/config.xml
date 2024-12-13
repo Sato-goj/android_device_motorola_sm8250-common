@@ -55,6 +55,9 @@
    <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
        autodetected from the Configuration. -->
    <bool name="config_showNavigationBar">true</bool>
+   
+   <!-- Whether the device supports Smart Pixels -->
+   <bool name="config_supportSmartPixels">true</bool>
 
    <!-- Package names to use with vendor iwlan implementation. -->
    <string name="config_wlan_data_service_package" translatable="false">vendor.qti.iwlan</string>
