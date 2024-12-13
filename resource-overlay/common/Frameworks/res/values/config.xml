@@ -299,4 +299,7 @@
 
     <!-- Configure emergency apn as empty(null) apn -->
     <string name="config_emergency_apn" translatable="false"></string>
+	
+	<!-- Whether device ignores the RSSNR signal implementation -->
+    <bool name="config_ignoreRssnrSignalLevel">true</bool>
 </resources>
