@@ -566,6 +566,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Use FUSE passthrough
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.fuse.passthrough.enable=true
+
+# FS-verity
+PRODUCT_PRODUCT_PROPERTIES += \
+	ro.apk_verity.mode=2
 # }}}
 
 # vim:fdm=marker
