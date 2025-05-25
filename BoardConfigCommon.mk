@@ -178,7 +178,6 @@ TARGET_USERIMAGES_USE_F2FS := true
 
 # Properties
 TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
-TARGET_PRODUCT_PROP += $(COMMON_PATH)/product.prop
 
 # Recovery
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
