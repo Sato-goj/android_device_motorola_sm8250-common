@@ -23,7 +23,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Viper
-$(call inherit-product, hardware/motorola/ViPER4AndroidFX/setup.mk)
+$(call inherit-product, packages/apps/ViPER4AndroidFX/config.mk)
 
 PRODUCT_BRAND := motorola
 PRODUCT_MANUFACTURER := motorola
