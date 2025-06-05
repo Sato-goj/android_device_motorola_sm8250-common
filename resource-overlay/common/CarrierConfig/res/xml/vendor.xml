@@ -45,10 +45,10 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
 
     <carrier_config>
         <boolean name="apn_expand_bool" value="true" />
-        <boolean name="world_phone_bool" value="true" />
+        <boolean name="world_phone_bool" value="false" />
         <boolean name="allow_adding_apns_bool" value="true" />
         <boolean name="hide_preferred_network_type_bool" value="false" />
-        <boolean name="show_cdma_choices_bool" value="true" />
+        <boolean name="show_cdma_choices_bool" value="false" />
         <boolean name="allow_video_call_in_low_battery" value="true" />
         <boolean name="config_enable_display_14digit_imei" value="false" />
         <!-- Determines whether UI extensions for video calls should be used or not -->
@@ -94,6 +94,10 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <!-- HD/VOLTE icon support -->
         <boolean name="config_update_service_status" value="false"/>
         <boolean name="config_update_volte_icon" value="false"/>
+        
+        <!-- Allow VoLTE and WFC by default -->
+        <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
 
         <boolean name="auto_retry_failed_wifi_emergency_call" value="true" />
 
@@ -104,6 +108,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="allow_hold_video_call_bool" value="true"/>
         <!-- Config to allow accept one way for video calls -->
         <boolean name="allow_one_way_accept_video_call" value="true" />
+        <boolean name="editable_enhanced_4g_lte_bool" value="true" />
         <!-- Config for multi anchor conference support  -->
         <boolean name="carrier_supports_multianchor_conference" value="false"/>
         <!-- Config for Call Composer Feature support -->
@@ -670,12 +675,92 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
     <carrier_config mcc="286" mnc="02">
         <boolean name="carrier_volte_available_bool" value="true" />
     </carrier_config>
+    
+    <!-- PA: Enable ViLTE for Airtel India -->
+    <carrier_config mcc="404" mnc="02,03,10,16,31,40,45,49,70,90,92,93,94,95,96,97,98">
+        <boolean name="carrier_vt_available_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="vonr_on_by_default_bool" value="true" />
+    </carrier_config>
+
+    <carrier_config mcc="405" mnc="56,55,54,53,52,51">
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="vonr_on_by_default_bool" value="true" />
+    </carrier_config>
+    
+    <carrier_config cid="1961" name="Airtel">
+        <boolean name="carrier_allow_transfer_ims_call_bool" value="false" />
+        <boolean name="support_video_conference_call_bool" value="true" />
+        <boolean name="editable_wfc_mode_bool" value="true" />
+        <boolean name="editable_wfc_roaming_mode_bool" value="false" />
+        <boolean name="nt_carrier_wait_for_in_service_to_dial_ecc_bool" value="true" />
+        <boolean name="nt_carrier_change_to_auto_mode_bool" value="true" />
+        <long name="nt_carrier_change_to_auto_mode_delay_timer_long" value="30000" />
+        <boolean name="nt_carrier_nsa_cell_cache_bool" value="true" />
+        <boolean name="nt_carrier_enhance_nr_icon_bool" value="true" />
+        <boolean name="allow_hold_call_during_emergency_bool" value="false" />
+    </carrier_config>
+    
+    <carrier_config mcc="404">
+        <boolean name="config_update_multiparty_state" value="false"/>
+        <boolean name="carrier_volte_available_bool" value="true"/>
+        <boolean name="carrier_vt_available_bool" value="true"/>
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="editable_wfc_mode_bool" value="true"/>
+        <boolean name="disable_emulating_single_party_call_bool" value="true"/>
+        <boolean name="config_editable_wfc_when_calling" value="false"/>
+        <boolean name="config_video_supp_service" value="true"/>
+    </carrier_config>
+    
+    <carrier_config mcc="404" mnc="01,05,11,13,15,20,27,30,43,46,60,84,86,88">
+        <int name="carrier_default_wfc_ims_mode_int" value="2"/>
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="carrier_default_wfc_ims_enabled_bool" value="true"/>
+        <boolean name="editable_wfc_mode_bool" value="false"/>
+        <boolean name="hide_wfc_mode_option" value="true"/>
+        <boolean name="wos_flight_mode_support_bool" value="true"/>
+    </carrier_config>
+    
+    <carrier_config mcc="404" mnc="22,24,07,78,04,12,56,19,89,87,82,44,14">
+        <int name="carrier_default_wfc_ims_mode_int" value="2"/>
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="carrier_default_wfc_ims_enabled_bool" value="true"/>
+        <boolean name="editable_wfc_mode_bool" value="false"/>
+        <boolean name="hide_wfc_mode_option" value="true"/>
+        <boolean name="wos_flight_mode_support_bool" value="true"/>
+    </carrier_config>
+    
+    <carrier_config mcc="404" mnc="02,03,10,16,31,40,45,49,70,90,92,93,94,95,96,97,98">
+        <int name="carrier_default_wfc_ims_mode_int" value="2"/>
+        <boolean name="editable_wfc_mode_bool" value="false"/>
+        <boolean name="hide_wfc_mode_option" value="true"/>
+        <boolean name="carrier_default_wfc_ims_enabled_bool" value="true"/>
+        <boolean name="mtk_carrier_wfc_get_location_always" value="true"/>
+    </carrier_config>
+    
+    <!--印度 IN Airtel-->
+    <carrier_config mcc="404" mnc="02,03,10,16,31,40,45,49,70,90,92,93,94,95,96,97,98">
+	<boolean name="vonr_enabled_bool" value="true" />
+	<boolean name="carrier_disable_5g_switch_bool" value="false" />
+	<boolean name="config_editable_wfc_when_calling" value="false" />
+    <boolean name="config_video_supp_service" value="true" />
+    <boolean name="config_show_vonr_icon_in_statusbar" value="true" />
+	<int-array name="carrier_nr_availabilities_int_array" num="1">
+        <item value="1" />
+    </int-array>
+		<boolean name="carrier_vt_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
+    </carrier_config>
 
     <carrier_config mcc="405" mnc="840">
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
         <boolean name="editable_wfc_mode_bool" value="false" />
         <int name="carrier_default_wfc_ims_mode_int" value="2" />
+		<int-array name="carrier_nr_availabilities_int_array" num="1">
+            		<item value="2" />
+        	</int-array>
         <boolean name="video_call_use_ext" value="false" />
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="config_hide_preview_in_vt_confcall" value="true" />
@@ -704,6 +789,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
     <carrier_config mcc="405" mnc="854">
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
         <boolean name="editable_wfc_mode_bool" value="false" />
         <int name="carrier_default_wfc_ims_mode_int" value="2" />
         <boolean name="video_call_use_ext" value="false" />
@@ -725,6 +811,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
             <item value="include_common_rules"/>
             <item value="false"/>
         </string-array>
+		<int-array name="carrier_nr_availabilities_int_array" num="1">
+            		<item value="2" />
+        	</int-array>
         <boolean name="show_video_quality_ui" value="true" />
         <boolean name="vowifi_call_quality" value="true" />
         <boolean name="config_retry_sms_over_ims" value="true"/>
@@ -734,6 +823,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
     <carrier_config mcc="405" mnc="855">
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
         <boolean name="editable_wfc_mode_bool" value="false" />
         <int name="carrier_default_wfc_ims_mode_int" value="2" />
         <boolean name="video_call_use_ext" value="false" />
@@ -744,6 +834,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="transmit_static_image" value="true"/>
         <boolean name="show_static_image_ui" value="true"/>
         <boolean name="config_dds_switch_alert_dialog_supported" value="true"/>
+		<int-array name="carrier_nr_availabilities_int_array" num="1">
+            		<item value="2" />
+        	</int-array>
         <boolean name="show_video_quality_toast" value="false"/>
         <boolean name="show_call_session_event_toast" value="false"/>
         <boolean name="show_data_usage_toast" value="false"/>
@@ -764,9 +857,13 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
     <carrier_config mcc="405" mnc="856">
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
         <boolean name="editable_wfc_mode_bool" value="false" />
         <int name="carrier_default_wfc_ims_mode_int" value="2" />
         <boolean name="video_call_use_ext" value="false" />
+		<int-array name="carrier_nr_availabilities_int_array" num="1">
+            		<item value="2" />
+        	</int-array>
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="config_hide_preview_in_vt_confcall" value="true" />
         <boolean name="config_carrier_specific_network_type_display" value="true"/>
@@ -793,9 +890,15 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
 
     <carrier_config mcc="405" mnc="857">
         <boolean name="carrier_vt_available_bool" value="true" />
+        <boolean name="hide_lte_plus_data_icon_bool" value="false"/>
+        <int name="lte_plus_threshold_bandwidth_khz_int" value="0"/>
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
         <boolean name="editable_wfc_mode_bool" value="false" />
         <int name="carrier_default_wfc_ims_mode_int" value="2" />
+		<int-array name="carrier_nr_availabilities_int_array" num="1">
+            		<item value="2" />
+        	</int-array>
         <boolean name="video_call_use_ext" value="false" />
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="config_hide_preview_in_vt_confcall" value="true" />
@@ -824,8 +927,12 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
     <carrier_config mcc="405" mnc="858">
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
         <boolean name="editable_wfc_mode_bool" value="false" />
         <int name="carrier_default_wfc_ims_mode_int" value="2" />
+		<int-array name="carrier_nr_availabilities_int_array" num="1">
+            		<item value="2" />
+        	</int-array>
         <boolean name="video_call_use_ext" value="false" />
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="config_hide_preview_in_vt_confcall" value="true" />
@@ -854,6 +961,10 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
     <carrier_config mcc="405" mnc="859">
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
+		<int-array name="carrier_nr_availabilities_int_array" num="1">
+            		<item value="2" />
+        	</int-array>
         <boolean name="editable_wfc_mode_bool" value="false" />
         <int name="carrier_default_wfc_ims_mode_int" value="2" />
         <boolean name="video_call_use_ext" value="false" />
@@ -884,8 +995,12 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
     <carrier_config mcc="405" mnc="860">
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
         <boolean name="editable_wfc_mode_bool" value="false" />
         <int name="carrier_default_wfc_ims_mode_int" value="2" />
+		<int-array name="carrier_nr_availabilities_int_array" num="1">
+            		<item value="2" />
+        	</int-array>
         <boolean name="video_call_use_ext" value="false" />
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="config_hide_preview_in_vt_confcall" value="true" />
@@ -914,10 +1029,14 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
     <carrier_config mcc="405" mnc="861">
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
         <boolean name="editable_wfc_mode_bool" value="false" />
         <int name="carrier_default_wfc_ims_mode_int" value="2" />
         <boolean name="video_call_use_ext" value="false" />
         <boolean name="use_custom_video_ui" value="true" />
+		<int-array name="carrier_nr_availabilities_int_array" num="1">
+            		<item value="2" />
+        	</int-array>
         <boolean name="config_hide_preview_in_vt_confcall" value="true" />
         <boolean name="config_carrier_specific_network_type_display" value="true"/>
         <boolean name="remove_modify_call_capability" value="true" />
@@ -944,8 +1063,12 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
     <carrier_config mcc="405" mnc="862">
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
         <boolean name="editable_wfc_mode_bool" value="false" />
         <int name="carrier_default_wfc_ims_mode_int" value="2" />
+		<int-array name="carrier_nr_availabilities_int_array" num="1">
+            		<item value="2" />
+        	</int-array>
         <boolean name="video_call_use_ext" value="false" />
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="config_hide_preview_in_vt_confcall" value="true" />
@@ -974,7 +1097,11 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
     <carrier_config mcc="405" mnc="863">
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
         <boolean name="editable_wfc_mode_bool" value="false" />
+		<int-array name="carrier_nr_availabilities_int_array" num="1">
+            		<item value="2" />
+        	</int-array>
         <int name="carrier_default_wfc_ims_mode_int" value="2" />
         <boolean name="video_call_use_ext" value="false" />
         <boolean name="use_custom_video_ui" value="true" />
@@ -1004,9 +1131,13 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
     <carrier_config mcc="405" mnc="864">
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
         <boolean name="editable_wfc_mode_bool" value="false" />
         <int name="carrier_default_wfc_ims_mode_int" value="2" />
-        <boolean name="video_call_use_ext" value="false" />
+        <boolean name="video_call_use_ext" value="false" /> 
+		<int-array name="carrier_nr_availabilities_int_array" num="1">
+            		<item value="2" />
+        	</int-array>
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="config_hide_preview_in_vt_confcall" value="true" />
         <boolean name="config_carrier_specific_network_type_display" value="true"/>
@@ -1034,10 +1165,14 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
     <carrier_config mcc="405" mnc="865">
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
         <boolean name="editable_wfc_mode_bool" value="false" />
         <int name="carrier_default_wfc_ims_mode_int" value="2" />
         <boolean name="video_call_use_ext" value="false" />
         <boolean name="use_custom_video_ui" value="true" />
+		<int-array name="carrier_nr_availabilities_int_array" num="1">
+            		<item value="2" />
+        	</int-array>
         <boolean name="config_hide_preview_in_vt_confcall" value="true" />
         <boolean name="config_carrier_specific_network_type_display" value="true"/>
         <boolean name="remove_modify_call_capability" value="true" />
@@ -1064,7 +1199,11 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
     <carrier_config mcc="405" mnc="866">
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
         <boolean name="editable_wfc_mode_bool" value="false" />
+		<int-array name="carrier_nr_availabilities_int_array" num="1">
+            		<item value="2" />
+        	</int-array>
         <int name="carrier_default_wfc_ims_mode_int" value="2" />
         <boolean name="video_call_use_ext" value="false" />
         <boolean name="use_custom_video_ui" value="true" />
@@ -1094,9 +1233,13 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
     <carrier_config mcc="405" mnc="867">
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
         <boolean name="editable_wfc_mode_bool" value="false" />
         <int name="carrier_default_wfc_ims_mode_int" value="2" />
         <boolean name="video_call_use_ext" value="false" />
+		<int-array name="carrier_nr_availabilities_int_array" num="1">
+            		<item value="2" />
+        	</int-array>
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="config_hide_preview_in_vt_confcall" value="true" />
         <boolean name="config_carrier_specific_network_type_display" value="true"/>
@@ -1124,12 +1267,16 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
     <carrier_config mcc="405" mnc="868">
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
         <boolean name="editable_wfc_mode_bool" value="false" />
         <int name="carrier_default_wfc_ims_mode_int" value="2" />
         <boolean name="video_call_use_ext" value="false" />
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="config_hide_preview_in_vt_confcall" value="true" />
         <boolean name="config_carrier_specific_network_type_display" value="true"/>
+		<int-array name="carrier_nr_availabilities_int_array" num="1">
+            		<item value="2" />
+        	</int-array>
         <boolean name="remove_modify_call_capability" value="true" />
         <boolean name="transmit_static_image" value="true"/>
         <boolean name="show_static_image_ui" value="true"/>
@@ -1154,9 +1301,13 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
     <carrier_config mcc="405" mnc="869">
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
         <boolean name="editable_wfc_mode_bool" value="false" />
         <int name="carrier_default_wfc_ims_mode_int" value="2" />
         <boolean name="video_call_use_ext" value="false" />
+		<int-array name="carrier_nr_availabilities_int_array" num="1">
+            		<item value="2" />
+        	</int-array>
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="config_hide_preview_in_vt_confcall" value="true" />
         <boolean name="config_carrier_specific_network_type_display" value="true"/>
@@ -1184,8 +1335,12 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
     <carrier_config mcc="405" mnc="870">
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
         <boolean name="editable_wfc_mode_bool" value="false" />
         <int name="carrier_default_wfc_ims_mode_int" value="2" />
+		<int-array name="carrier_nr_availabilities_int_array" num="1">
+            		<item value="2" />
+        	</int-array>
         <boolean name="video_call_use_ext" value="false" />
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="config_hide_preview_in_vt_confcall" value="true" />
@@ -1214,9 +1369,13 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
     <carrier_config mcc="405" mnc="871">
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
         <boolean name="editable_wfc_mode_bool" value="false" />
         <int name="carrier_default_wfc_ims_mode_int" value="2" />
         <boolean name="video_call_use_ext" value="false" />
+		<int-array name="carrier_nr_availabilities_int_array" num="1">
+            		<item value="2" />
+        	</int-array>
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="config_hide_preview_in_vt_confcall" value="true" />
         <boolean name="config_carrier_specific_network_type_display" value="true"/>
@@ -1245,8 +1404,12 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
         <boolean name="editable_wfc_mode_bool" value="false" />
+		<boolean name="vonr_enabled_bool" value="true" />
         <int name="carrier_default_wfc_ims_mode_int" value="2" />
         <boolean name="video_call_use_ext" value="false" />
+		<int-array name="carrier_nr_availabilities_int_array" num="1">
+            		<item value="2" />
+        	</int-array>
         <boolean name="use_custom_video_ui" value="true" />
         <boolean name="config_hide_preview_in_vt_confcall" value="true" />
         <boolean name="config_carrier_specific_network_type_display" value="true"/>
@@ -1274,6 +1437,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
     <carrier_config mcc="405" mnc="873">
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
         <boolean name="editable_wfc_mode_bool" value="false" />
         <int name="carrier_default_wfc_ims_mode_int" value="2" />
         <boolean name="video_call_use_ext" value="false" />
@@ -1282,6 +1446,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="config_carrier_specific_network_type_display" value="true"/>
         <boolean name="remove_modify_call_capability" value="true" />
         <boolean name="transmit_static_image" value="true"/>
+		<int-array name="carrier_nr_availabilities_int_array" num="1">
+            		<item value="2" />
+        	</int-array>
         <boolean name="show_static_image_ui" value="true"/>
         <boolean name="config_dds_switch_alert_dialog_supported" value="true"/>
         <boolean name="show_video_quality_toast" value="false"/>
@@ -1304,6 +1471,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
     <carrier_config mcc="405" mnc="874">
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
         <boolean name="editable_wfc_mode_bool" value="false" />
         <int name="carrier_default_wfc_ims_mode_int" value="2" />
         <boolean name="video_call_use_ext" value="false" />
@@ -1311,6 +1479,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.-->
         <boolean name="config_hide_preview_in_vt_confcall" value="true" />
         <boolean name="config_carrier_specific_network_type_display" value="true"/>
         <boolean name="remove_modify_call_capability" value="true" />
+		<int-array name="carrier_nr_availabilities_int_array" num="1">
+            		<item value="2" />
+        	</int-array>
         <boolean name="transmit_static_image" value="true"/>
         <boolean name="show_static_image_ui" value="true"/>
         <boolean name="config_dds_switch_alert_dialog_supported" value="true"/>
