@@ -359,9 +359,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.disable_client_composition_cache=1 \
     debug.sf.enable_gl_backpressure=1 \
     debug.sf.enable_advanced_sf_phase_offset=1 \
-    debug.sf.high_fps_late_sf_phase_offset_ns=-4000000 \
-    debug.sf.high_fps_early_phase_offset_ns=-4000000 \
-    debug.sf.high_fps_early_gl_phase_offset_ns=-4000000
+    debug.sf.high_fps_late_sf_phase_offset_ns=-2000000 \
+    debug.sf.high_fps_early_phase_offset_ns=-2000000 \
+    debug.sf.high_fps_early_gl_phase_offset_ns=-2000000
 
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
     persist.demo.hdmirotationlock=false
@@ -372,18 +372,18 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.has_HDR_display=true
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.use_color_management=true
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.wcg_composition_dataspace=143261696
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.protected_contents=true
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.set_touch_timer_ms=200
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.set_touch_timer_ms=1000
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.force_hwc_copy_for_virtual_displays=true
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.max_frame_buffer_acquired_buffers=3
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.max_virtual_display_dimension=4096
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.display.idle_time=0 \
+    vendor.display.idle_time=3000 \
     vendor.display.disable_idle_time_hdr=1 \
     vendor.display.disable_idle_time_video=1
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.surface_flinger.set_idle_timer_ms=80 \
+    ro.surface_flinger.set_idle_timer_ms=1000 \
     ro.surface_flinger.use_content_detection_for_refresh_rate=true
 
 # Recovery is enabled, logging is disabled
@@ -532,6 +532,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.zram.first_wb_delay_mins=1440 \
     ro.zram.periodic_wb_delay_hours=24
 # }}}
+
+# Radio VoNR Calling
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.radio.is_vonr_enabled_0=true \
+    persist.radio.is_vonr_enabled_1=true
 
 # Misc {{{
 # Enable incremental FS feature

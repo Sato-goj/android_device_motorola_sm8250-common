@@ -176,6 +176,8 @@ persist.radio.data_ltd_sys_ind=1
 persist.radio.data_con_rprt=1
 persist.radio.calls.on.ims=1
 persist.radio.VT_ENABLE=1
+persist.radio.volte.enable=1
+persist.radio.ims_enabled=1
 
 # Other Options
 persist.sys.cust.lte_config=true
@@ -190,9 +192,11 @@ persist.radio.add_power_save=1
 pm.sleep_mode=1
 ro.ril.disable.power.collapse=0
 ro.ril.fast.dormancy.rule=1
-ro.ril.fast.dormancy.timeout=6
+ro.ril.fast.dormancy.timeout=3
 
 # Radio VoNR
 persist.radio.is_vonr_enabled_0=true
 persist.radio.is_vonr_enabled_1=true
 persist.vendor.vonr_setting_support=1
+ro.vold.umsdirtyratio=20
+power.saving.mode=1
