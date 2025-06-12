@@ -94,17 +94,6 @@ on boot
     # Load all wlan drivers
     exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules/ qca_cld3_qca6390 qca_cld3_qca6490
 
-# Restrict access on this node
-on property:sys.boot_completed=1
-    # Only owner can acces this node
-    chmod 440 /proc/net/unix
-
-	# Enable suspend to RAM
-    write /sys/power/mem_sleep "deep"
-
-	# STOP EATING MY BATTERY AFTER 100H OF UPTIME FUCK YOU
-    stop statsd
-
 on property:vendor.display.lcd_density=560
    setprop dalvik.vm.heapgrowthlimit 256m
 
@@ -118,6 +107,17 @@ on charger
     start vendor.power_off_alarm
     setprop sys.usb.controller a600000.dwc3
     setprop sys.usb.configfs 1
+
+# Restrict access on this node
+on property:sys.boot_completed=1
+   # Only owner can acces this node
+    chmod 440 /proc/net/unix
+
+   # STOP EATING MY BATTERY AFTER 100H OF UPTIME FUCK YOUAdd commentMore actions
+    stop statsd
+
+   # Enable suspend to RAMAdd commentMore actions
+    write /sys/power/mem_sleep "deep"
 
 service vendor.lowi /vendor/bin/sscrpcd
    class core

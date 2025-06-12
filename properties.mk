@@ -9,7 +9,8 @@ persist.vendor.audio.ambisonic.capture=false \
 persist.vendor.audio.ambisonic.auto.profile=false
 
 PRODUCT_PROPERTY_OVERRIDES += \
-persist.vendor.audio.apptype.multirec.enabled=false
+persist.vendor.audio.apptype.multirec.enabled=false \
+ro.apk_verity.mode=2
 
 ##fluencetype can be "fluence" or "fluencepro" or "none"
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -167,7 +168,7 @@ vendor.audio.feature.battery_listener.enable=true \
 vendor.audio.feature.compr_cap.enable=false \
 vendor.audio.feature.compress_in.enable=true \
 vendor.audio.feature.compress_meta_data.enable=true \
-vendor.audio.feature.compr_voip.enable=false \
+vendor.audio.feature.compr_voip.enable=true \
 vendor.audio.feature.concurrent_capture.enable=true \
 vendor.audio.feature.custom_stereo.enable=true \
 vendor.audio.feature.display_port.enable=true \
@@ -359,9 +360,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.disable_client_composition_cache=1 \
     debug.sf.enable_gl_backpressure=1 \
     debug.sf.enable_advanced_sf_phase_offset=1 \
-    debug.sf.high_fps_late_sf_phase_offset_ns=-2000000 \
-    debug.sf.high_fps_early_phase_offset_ns=-2000000 \
-    debug.sf.high_fps_early_gl_phase_offset_ns=-2000000
+    debug.sf.high_fps_late_sf_phase_offset_ns=-2500000 \
+    debug.sf.high_fps_early_phase_offset_ns=-2500000 \
+    debug.sf.high_fps_early_gl_phase_offset_ns=-2500000
 
 PRODUCT_SYSTEM_EXT_PROPERTIES += \
     persist.demo.hdmirotationlock=false
@@ -533,11 +534,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.zram.periodic_wb_delay_hours=24
 # }}}
 
-# Radio VoNR Calling
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.radio.is_vonr_enabled_0=true \
-    persist.radio.is_vonr_enabled_1=true
-
 # Misc {{{
 # Enable incremental FS feature
 PRODUCT_PROPERTY_OVERRIDES += ro.incremental.enable=1
@@ -571,10 +567,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Use FUSE passthrough
 PRODUCT_PRODUCT_PROPERTIES += \
     persist.sys.fuse.passthrough.enable=true
-
-# FS-verity
-PRODUCT_PRODUCT_PROPERTIES += \
-	ro.apk_verity.mode=2
 # }}}
 
 # vim:fdm=marker
